@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.appbar.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/appBar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:popupTheme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivToolbarBack"
+                android:layout_width="@dimen/size_toolbar_icon"
+                android:layout_height="@dimen/size_toolbar_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="@dimen/half"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:padding="@dimen/padding_toolbar_icon"
+                android:visibility="visible"
+                app:srcCompat="@drawable/ic_back"
+                tools:visibility="visible" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/ivToolbarBack"
+                android:gravity="center_vertical"
+                android:orientation="vertical">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvToolbarTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/textLightPrimary"
+                    android:textSize="@dimen/text_title"
+                    android:textStyle="bold"
+                    tools:text="Title" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tvToolbarDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/toolbarTitle"
+                    android:textColor="@color/textLightSecondary"
+                    android:textSize="@dimen/text_caption"
+                    android:textStyle="normal"
+                    android:visibility="visible"
+                    tools:text="20 News-Items" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+</com.google.android.material.appbar.AppBarLayout>

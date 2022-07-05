@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="2dp"
+    android:layout_marginVertical="2dp"
+    app:cardCornerRadius="4dp"
+    app:cardElevation="2dp"
+    app:strokeColor="@color/colorPrimary"
+    app:strokeWidth="0.2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <View
+            android:id="@+id/v1"
+            android:layout_width="@dimen/full"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/half"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/full_xl"
+            android:layout_marginTop="@dimen/half"
+            android:layout_marginEnd="@dimen/half"
+            android:textColor="@color/textDarkPrimary"
+            android:textSize="@dimen/text_body_1"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/v1"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Eknath Shinde govt wins trust vote, says disqualify 15 Sena MLAs" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/full_xl"
+            android:layout_marginTop="@dimen/half"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/textDarkSecondary"
+            android:textSize="@dimen/text_body_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="The new Eknath Shinde government in Maharashtra sailed through the trust vote in the state assembly on Monday, with 164 MLAs voting in its favour and 99 MLAs siding with the Maha Vikas Aghadi (MVA). The MVA received eight votes less than it had in the election for the state assembly speaker a day earlier." />
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPublishDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/half"
+            android:layout_marginStart="@dimen/full_xl"
+            android:layout_marginTop="@dimen/half"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/textDarkSecondary"
+            android:textSize="@dimen/text_caption"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+            tools:text="2022-07-05T01:03:56+05:30" />
+
+        <!-- <View
+             android:id="@+id/v2"
+             android:layout_width="match_parent"
+             android:layout_height="0.5dp"
+             android:background="@color/app_bg"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintStart_toStartOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

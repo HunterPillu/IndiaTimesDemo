@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_top"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:title="@string/bottom_top_stories"/>
+
+    <item
+        android:id="@+id/navigation_india"
+        android:icon="@drawable/ic_baseline_discount_24"
+        android:title="@string/bottom_india"/>
+
+
+    <item
+        android:id="@+id/navigation_world"
+        android:icon="@drawable/ic_baseline_language_24"
+        android:title="@string/bottom_world"
+        />
+
+    <item
+        android:id="@+id/navigation_sports"
+        android:icon="@drawable/ic_baseline_sports_baseball_24"
+        android:title="@string/bottom_sports"/>
+
+</menu>

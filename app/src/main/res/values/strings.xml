@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">AjayRadisys</string>
+    <string name="bottom_top_stories">Top Stories</string>
+    <string name="bottom_india">India</string>
+    <string name="bottom_world">World</string>
+    <string name="bottom_sports">Sports</string>
+
+    <string name="desc_top_stories">Showing Top Stories</string>
+    <string name="desc_india">Showing India news list</string>
+    <string name="desc_world">Showing World news list</string>
+    <string name="desc_sports">Showing Sports news list</string>
+
+    <string name="desc_top_stories_detail">Showing Top Stories detail</string>
+    <string name="desc_india_detail">Showing India news detail</string>
+    <string name="desc_world_detail">Showing World news detail</string>
+    <string name="desc_sports_detail">Showing Sports news detail</string>
+
+
+    <string name="msg_no_news">No News found</string>
+    <string name="title_activity_detail">DetailActivity</string>
+
+    <string name="read_more">Read More…</string>
+</resources>

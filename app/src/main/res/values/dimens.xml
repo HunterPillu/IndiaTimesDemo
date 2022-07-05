@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="full_xl">24dp</dimen>
+    <dimen name="full">16dp</dimen>
+    <dimen name="medium">12dp</dimen>
+    <dimen name="half">8dp</dimen>
+    <dimen name="quarter">4dp</dimen>
+    <dimen name="height_toolbar">56dp</dimen>
+
+    <dimen name="text_header">24sp</dimen>
+    <dimen name="text_sub_header">20sp</dimen>
+    <dimen name="text_title">18sp</dimen>
+    <dimen name="text_body_1">16sp</dimen>
+    <dimen name="text_body_2">14sp</dimen>
+    <dimen name="text_caption">12sp</dimen>
+    <dimen name="size_progress_bar">36dp</dimen>
+    <dimen name="size_toolbar_icon">48dp</dimen>
+    <dimen name="padding_toolbar_icon">12dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+</resources>
