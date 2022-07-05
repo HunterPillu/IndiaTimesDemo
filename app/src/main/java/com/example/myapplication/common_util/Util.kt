@@ -1,4 +1,4 @@
-package com.example.myapplication.utils
+package com.example.myapplication.common_util
 
 import android.os.Build
 import android.text.Html

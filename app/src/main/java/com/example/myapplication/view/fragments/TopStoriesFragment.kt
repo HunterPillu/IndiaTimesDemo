@@ -1,9 +1,10 @@
-package com.example.myapplication.fragments
+package com.example.myapplication.view.fragments
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
-import com.example.myapplication.utils.Util
+import com.example.myapplication.common_util.Util
+import com.example.myapplication.viewmodel.CommonViewModel
 
 class TopStoriesFragment : BaseFragment() {
 

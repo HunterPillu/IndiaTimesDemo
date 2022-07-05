@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.Article
-import com.example.myapplication.utils.Util
-import com.example.myapplication.utils.Util.getHtmlText
+import com.example.myapplication.common_util.Util
+import com.example.myapplication.common_util.Util.getHtmlText
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.textview.MaterialTextView
 

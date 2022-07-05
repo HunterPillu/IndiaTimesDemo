@@ -1,18 +1,16 @@
-package com.example.myapplication
+package com.example.myapplication.view.activities
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import com.example.myapplication.fragments.IndiaFragment
-import com.example.myapplication.fragments.SportsFragment
-import com.example.myapplication.fragments.TopStoriesFragment
-import com.example.myapplication.fragments.WorldFragment
+import com.example.myapplication.R
+import com.example.myapplication.view.fragments.IndiaFragment
+import com.example.myapplication.view.fragments.SportsFragment
+import com.example.myapplication.view.fragments.TopStoriesFragment
+import com.example.myapplication.view.fragments.WorldFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.textview.MaterialTextView
 
 class MainActivity : AppCompatActivity() {
 

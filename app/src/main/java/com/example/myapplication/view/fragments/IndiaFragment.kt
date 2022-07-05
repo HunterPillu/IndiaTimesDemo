@@ -1,16 +1,17 @@
-package com.example.myapplication.fragments
+package com.example.myapplication.view.fragments
 
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import com.example.myapplication.R
-import com.example.myapplication.utils.Util
+import com.example.myapplication.common_util.Util
+import com.example.myapplication.viewmodel.CommonViewModel
 
-class WorldFragment : BaseFragment() {
+class IndiaFragment : BaseFragment() {
 
 
     companion object {
-        fun newInstance(tabNum: Int): WorldFragment {
-            val frag = WorldFragment();
+        fun newInstance(tabNum: Int): IndiaFragment {
+            val frag = IndiaFragment();
             val bundle = Bundle()
             bundle.putInt(Util.KEY_TAB_NUMBER, tabNum)
             frag.arguments = bundle
@@ -23,8 +24,7 @@ class WorldFragment : BaseFragment() {
     }
 
     override fun setUpToolbar() {
-        tvToolbarTitle.setText(R.string.bottom_world)
-        tvToolbarDesc.setText(R.string.desc_world)
+        tvToolbarTitle.setText(R.string.bottom_india)
+        tvToolbarDesc.setText(R.string.desc_india)
     }
-
 }

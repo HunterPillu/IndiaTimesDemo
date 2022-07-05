@@ -1,14 +1,13 @@
-package com.example.myapplication.view.adapter.activities
+package com.example.myapplication.view.activities
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import com.example.myapplication.R
 import com.example.myapplication.model.Article
-import com.example.myapplication.utils.Util
+import com.example.myapplication.common_util.Util
 import com.google.android.material.textview.MaterialTextView
 
 

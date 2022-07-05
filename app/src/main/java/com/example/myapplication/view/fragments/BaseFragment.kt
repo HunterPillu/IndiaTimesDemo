@@ -1,4 +1,4 @@
-package com.example.myapplication.fragments
+package com.example.myapplication.view.fragments
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,14 +8,14 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.model.Article
-import com.example.myapplication.utils.Util
-import com.example.myapplication.utils.Status
+import com.example.myapplication.common_util.Util
+import com.example.myapplication.common_util.Status
 import com.example.myapplication.view.adapter.NewsAdapter
-import com.example.myapplication.view.adapter.activities.DetailActivity
+import com.example.myapplication.view.activities.DetailActivity
+import com.example.myapplication.viewmodel.CommonViewModel
 import com.google.android.material.textview.MaterialTextView
 
 abstract class BaseFragment : Fragment(R.layout.top_stories_fragment) {
