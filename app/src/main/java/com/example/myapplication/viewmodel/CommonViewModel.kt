@@ -5,6 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.api.RetrofitBuilder
+import com.example.myapplication.api.UtApiException
 import com.example.myapplication.model.Feed
 import com.example.myapplication.common_util.Util
 import com.example.myapplication.common_util.Resource
@@ -18,9 +19,10 @@ import retrofit2.Response
 import java.io.IOException
 import kotlin.coroutines.CoroutineContext
 
-class CommonViewModel : ViewModel() {
+open class CommonViewModel : ViewModel() {
     private val TAG: String = CommonViewModel::class.java.name
     val statusLiveData = MutableLiveData<Resource<Int>>()
+    var apiErrorLiveData = MutableLiveData<UtApiException>()
     lateinit var mFeedResult: Feed
 
 
@@ -78,10 +80,8 @@ class CommonViewModel : ViewModel() {
         return null
     }
 
-    private fun onApiError(message: String) {
-        statusLiveData.postValue(
-            Resource.error(message, Util.CODE_ERROR)
-        )
+    fun onApiError(message: String) {
+        apiErrorLiveData.postValue(UtApiException(Util.CODE_ERROR, message))
     }
 
     fun onLoadMore(currentTabNumber: Int) {

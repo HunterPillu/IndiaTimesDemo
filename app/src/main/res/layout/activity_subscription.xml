@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activities.SubscriptionActivity">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical">
+
+        <include layout="@layout/custom_toolbar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubscription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/appBar"
+            android:layout_marginTop="@dimen/full"
+            android:layout_marginBottom="@dimen/half"
+            android:paddingHorizontal="@dimen/full"
+            android:text="@string/title_subscription_detail"
+            android:textColor="@color/textDarkPrimary"
+            android:textSize="@dimen/text_sub_header" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvSubscription"
+            android:clipToPadding="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_subscription" />
+
+
+        <!-- <com.google.android.material.card.MaterialCardView
+             android:id="@+id/cvBottom"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_alignParentBottom="true"
+             android:layout_margin="@dimen/half"
+             android:visibility="gone"
+             app:cardCornerRadius="@dimen/half"
+             app:cardElevation="@dimen/half"
+             tools:visibility="visible">
+
+             <androidx.appcompat.widget.LinearLayoutCompat
+                 android:layout_width="match_parent"
+                 android:layout_height="wrap_content"
+                 android:orientation="vertical"
+                 android:padding="@dimen/full">
+
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="match_parent"
+                     android:layout_height="wrap_content">
+
+                     <androidx.appcompat.widget.AppCompatTextView
+                         android:id="@+id/tv1"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_weight="1"
+
+                         android:padding="@dimen/half"
+                         android:text="@string/title_subscription_selected"
+                         android:textColor="@color/textDarkPrimary"
+                         android:textSize="@dimen/text_body_2" />
+
+                     <androidx.appcompat.widget.AppCompatTextView
+                         android:id="@+id/tvSubSelected"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:gravity="center"
+                         android:minWidth="100dp"
+                         android:padding="@dimen/half"
+                         android:textColor="@color/colorPrimary"
+                         android:textSize="@dimen/text_body_1"
+                         tools:text="DCB" />
+
+                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+                 <View
+                     android:layout_width="match_parent"
+                     android:layout_height="0.5dp"
+                     android:background="@color/divider_dark" />
+
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="match_parent"
+
+                     android:layout_height="wrap_content">
+
+                     <androidx.appcompat.widget.AppCompatTextView
+                         android:id="@+id/tv2"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:layout_below="@+id/tv1"
+                         android:layout_weight="1"
+                         android:padding="@dimen/half"
+
+                         android:text="@string/title_subscription_cost"
+                         android:textColor="@color/textDarkPrimary"
+                         android:textSize="@dimen/text_body_2" />
+
+                     <androidx.appcompat.widget.AppCompatTextView
+                         android:id="@+id/tvSubCost"
+                         android:layout_width="wrap_content"
+                         android:layout_height="wrap_content"
+                         android:gravity="center"
+                         android:minWidth="100dp"
+                         android:padding="@dimen/half"
+                         android:textColor="@color/colorPrimary"
+                         android:textSize="@dimen/text_body_1"
+                         tools:text="1200 /-" />
+
+                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+                 <View
+                     android:layout_width="match_parent"
+                     android:layout_height="0.5dp"
+                     android:background="@color/divider_dark" />
+
+                 <androidx.appcompat.widget.AppCompatTextView
+                     android:id="@+id/tvSubscribe"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
+                     android:layout_alignParentEnd="true"
+                     android:layout_gravity="end"
+                     android:layout_marginStart="@dimen/full"
+                     android:layout_marginTop="@dimen/full"
+                     android:background="@drawable/button_bg"
+                     android:gravity="center"
+                     android:minHeight="@dimen/medium_button_height"
+                     android:paddingHorizontal="@dimen/full_xl"
+                     android:text="@string/subscribe"
+                     android:textColor="@color/white"
+                     android:textSize="@dimen/text_body_1" />
+             </androidx.appcompat.widget.LinearLayoutCompat>
+         </com.google.android.material.card.MaterialCardView>-->
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="@string/msg_no_subscription"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/pbProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"
+            tools:visibility="visible" />
+
+
+    </RelativeLayout>
+
+    <include layout="@layout/bottomsheet_purchase" />
+
+    <include layout="@layout/bottomsheet_subscription" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

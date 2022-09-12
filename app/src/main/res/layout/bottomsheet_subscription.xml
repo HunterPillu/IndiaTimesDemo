@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvBottomSheetSubscribe"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:behavior_hideable="true"
+    app:cardCornerRadius="@dimen/full"
+    app:cardElevation="@dimen/full_xl"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    app:strokeColor="@color/colorPrimary"
+    app:strokeWidth="0.5dp">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/llControls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half"
+        android:layout_marginBottom="@dimen/full"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <!--<com.google.android.material.divider.MaterialDivider
+            android:layout_width="56dp"
+            android:layout_height="2dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/quarter" />-->
+
+
+        <RelativeLayout
+            android:id="@+id/llTopBarSubscription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/half"
+            android:gravity="center_vertical">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/iv_expand"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:rotation="180"
+                android:src="@drawable/ic_baseline_keyboard_arrow_up_24"
+                app:tint="@color/textDarkSecondary" />
+
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+
+                android:padding="@dimen/half"
+                android:text="@string/title_subscription_selected"
+                android:textColor="@color/textDarkPrimary"
+                android:textSize="@dimen/text_body_1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubSelected"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="100dp"
+                android:padding="@dimen/half"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_body_1"
+                android:textStyle="bold"
+                tools:text="DCB" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv1"
+                android:layout_weight="1"
+                android:padding="@dimen/half"
+
+                android:text="@string/title_subscription_cost"
+                android:textColor="@color/textDarkPrimary"
+                android:textSize="@dimen/text_body_1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvSubCost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="100dp"
+                android:padding="@dimen/half"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/text_body_1"
+                android:textStyle="bold"
+                tools:text="1200 /-" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_gravity="center" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubscribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_gravity="end"
+            android:layout_marginStart="@dimen/full"
+            android:layout_marginTop="@dimen/full"
+            android:background="@drawable/button_bg"
+            android:gravity="center"
+            android:minHeight="@dimen/medium_button_height"
+            android:paddingHorizontal="@dimen/full_xl"
+            android:text="@string/subscribe"
+            android:textColor="@color/white"
+            android:textSize="@dimen/text_body_1" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat><!-- </androidx.appcompat.widget.LinearLayoutCompat>-->
+
+</com.google.android.material.card.MaterialCardView>

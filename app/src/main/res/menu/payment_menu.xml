@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/payment_1"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:iconTint="@color/colorPrimary"
+        android:title="@string/payment_1"/>
+
+    <item
+        android:id="@+id/payment_2"
+        android:icon="@drawable/ic_baseline_discount_24"
+        android:title="@string/payment_2"/>
+
+
+    <item
+        android:id="@+id/payment_3"
+        android:icon="@drawable/ic_baseline_language_24"
+        android:title="@string/payment_3"
+        />
+
+    <item
+        android:id="@+id/payment_4"
+        android:icon="@drawable/ic_baseline_sports_baseball_24"
+        android:title="@string/payment_4"/>
+
+    <item
+        android:id="@+id/payment_1"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:iconTint="@color/colorPrimary"
+        android:title="@string/payment_5"/>
+    <item
+        android:id="@+id/payment_1"
+        android:icon="@drawable/ic_baseline_home_24"
+        android:iconTint="@color/colorPrimary"
+        android:title="@string/payment_6"/>
+
+</menu>

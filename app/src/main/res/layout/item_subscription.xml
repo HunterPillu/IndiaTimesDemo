@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvMain"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/half"
+    android:layout_marginVertical="@dimen/quarter"
+    app:cardBackgroundColor="@color/header_bg"
+    app:cardCornerRadius="@dimen/quarter"
+    app:cardElevation="2dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--<View
+            android:id="@+id/v1"
+            android:layout_width="@dimen/full_xl"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/half"
+            android:background="@color/colorPrimary"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />-->
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/full_xxl"
+            android:paddingHorizontal="@dimen/full"
+            android:paddingVertical="@dimen/half"
+            android:textColor="@color/textDarkPrimary"
+            android:textSize="@dimen/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="google play games" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/full_xl"
+            android:layout_marginTop="@dimen/quarter"
+            android:layout_marginBottom="@dimen/half"
+            android:background="@drawable/left_rounded_filled_price"
+            android:minWidth="100dp"
+            android:paddingHorizontal="@dimen/full"
+            android:paddingVertical="@dimen/half"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_header"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="1200 /-" />
+
+
+        <!-- <com.google.android.material.textview.MaterialTextView
+             android:id="@+id/tvPublishDate"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_marginVertical="@dimen/half"
+             android:layout_marginStart="@dimen/full_xl"
+             android:layout_marginTop="@dimen/half"
+             android:ellipsize="end"
+             android:maxLines="2"
+             android:textColor="@color/textDarkSecondary"
+             android:textSize="@dimen/text_caption"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintEnd_toEndOf="parent"
+             app:layout_constraintStart_toStartOf="parent"
+             app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+             tools:text="2022-07-05T01:03:56+05:30" />-->
+
+        <!-- <View
+             android:id="@+id/v2"
+             android:layout_width="match_parent"
+             android:layout_height="0.5dp"
+             android:background="@color/app_bg"
+             app:layout_constraintBottom_toBottomOf="parent"
+             app:layout_constraintStart_toStartOf="parent" />-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

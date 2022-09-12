@@ -25,4 +25,31 @@
     <color name="textLightDisabled">#80FFFFFF</color> <!--80 for %50 opacity-->
 
 
+    <color name="header_bg">#e9f5ff</color>
+    <!--<color name="colorPrimary">#3f51b5</color>
+    <color name="colorPrimaryDark">#303f9f</color>
+    <color name="colorAccent">#01579b</color>-->
+    <color name="charcoal">#111111</color>
+    <color name="white_60">#eeFFFFFF</color>
+    <color name="white_50">#99FFFFFF</color>
+    <color name="divider_light">#dedede</color>
+    <color name="divider_dark">#898989</color>
+    <color name="red">#F44336</color>
+    <color name="green">#4CAF50</color>
+    <!--    VEHICLE STATUS COLORS-->
+    <color name="vehicle_stopped">#F44336</color>
+    <color name="vehicle_offline_unknown">#6D6D6D</color>
+    <color name="vehicle_idle">#FF9800</color>
+    <color name="vehicle_moving">#4CAF50</color>
+    <color name="list_location_blue">#2a9df4</color>
+    <color name="battery_yellow">#FFEB3B</color>
+
+    <color name="textLightDisabledDEPRECATED">#4CFFFFFF</color>
+    <color name="chip_bg">#f8f8f8</color> <!--4C for %30 opacity-->
+    <color name="chip_border">#dedede</color>
+    <color name="icon_tint_primary">@color/colorPrimary</color>
+    <color name="toolbar_title">#ffffff</color> <!--4C for %30 opacity-->
+    <color name="disabled">#989898</color> <!--4C for %30 opacity-->
+
+
 </resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="full_xxl">36dp</dimen>
     <dimen name="full_xl">24dp</dimen>
     <dimen name="full">16dp</dimen>
     <dimen name="medium">12dp</dimen>
@@ -17,5 +18,7 @@
     <dimen name="size_toolbar_icon">48dp</dimen>
     <dimen name="padding_toolbar_icon">12dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="normal_button_height">48dp</dimen>
+    <dimen name="medium_button_height">36dp</dimen>
 
 </resources>

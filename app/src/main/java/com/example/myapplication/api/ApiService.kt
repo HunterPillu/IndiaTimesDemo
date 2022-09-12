@@ -1,8 +1,10 @@
 package com.example.myapplication.api
 
-import com.example.myapplication.model.Feed
+import com.example.myapplication.model.*
 import retrofit2.Response
+import retrofit2.http.Body
 import retrofit2.http.GET
+import retrofit2.http.POST
 
 interface ApiService {
     @GET("rssfeedstopstories.cms")
@@ -16,4 +18,16 @@ interface ApiService {
 
     @GET("rssfeeds/4719148.cms")
     suspend fun getSportsNews(): Response<Feed>
+
+    @POST("user/authenticate")
+    suspend fun authenticate(@Body body: DCBAuth): Response<DCBAuth>
+
+    @POST("user/association")
+    suspend fun association(@Body body: DCBAuth): Response<OtpResp>
+
+    @POST("user/purchase")
+    suspend fun purchase(@Body body: DcbPurchase): Response<OtpResp>
+
+    @GET("user/subscription_details")
+    suspend fun subscriptionDetails(): Response<MutableList<DcbSubscription>>
 }

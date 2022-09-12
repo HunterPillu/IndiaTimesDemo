@@ -12,7 +12,7 @@ import com.example.myapplication.view.fragments.TopStoriesFragment
 import com.example.myapplication.view.fragments.WorldFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : DcbBaseActivity() {
 
     private val mFragmentManager = supportFragmentManager
     private lateinit var activeFragment: Fragment
@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         mTopStoriesFragment = TopStoriesFragment.newInstance(0)
+
         initViews()
     }
 
