@@ -35,7 +35,7 @@ class HomeActivity : DcbBaseActivity() {
         }
 
         cvDetails.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, BillingActivity::class.java))
         }
     }
 

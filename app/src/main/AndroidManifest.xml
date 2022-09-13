@@ -38,6 +38,11 @@
             android:exported="true">
 
         </activity>
+        <activity
+            android:name=".view.activities.BillingActivity"
+            android:exported="true">
+
+        </activity>
 
 
         <activity

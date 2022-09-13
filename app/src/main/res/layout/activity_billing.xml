@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/custom_toolbar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBilling"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/appBar"
+        android:layout_marginTop="@dimen/full"
+        android:layout_marginBottom="@dimen/half"
+        android:paddingHorizontal="@dimen/full"
+        android:text="@string/title_billing_detail"
+        android:textColor="@color/textDarkPrimary"
+        android:textSize="@dimen/text_sub_header" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_weight="1"
+            android:padding="@dimen/half"
+
+            android:text="@string/billing_date"
+            android:textColor="@color/textDarkSecondary"
+            android:textSize="@dimen/text_body_1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBillingDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:padding="@dimen/half"
+            android:textColor="@color/textDarkPrimary"
+            android:textSize="@dimen/text_body_1"
+            tools:text="2022-09-13T07:27:39.053Z" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <com.google.android.material.divider.MaterialDivider
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_gravity="center" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+
+            android:padding="@dimen/half"
+            android:text="@string/total_billing_amount"
+            android:textColor="@color/textDarkSecondary"
+            android:textSize="@dimen/text_body_1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvBillingAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:minWidth="100dp"
+            android:padding="@dimen/half"
+            android:textColor="@color/textDarkPrimary"
+            android:textSize="@dimen/text_body_1"
+            tools:text="15100" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/half"
+        android:layout_marginTop="@dimen/medium"
+        android:gravity="center"
+        android:padding="@dimen/half"
+        android:text="@string/current_statement"
+        android:textColor="@color/textDarkPrimary"
+        android:textSize="@dimen/text_body_1" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/half"
+        android:visibility="gone">
+
+        <!-- <androidx.appcompat.widget.AppCompatTextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_below="@+id/tv1"
+             android:layout_weight="1"
+             android:padding="@dimen/half"
+             android:text="@string/text_date"
+             android:textColor="@color/textDarkSecondary"
+             android:textSize="@dimen/text_body_1" />-->
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/half"
+            android:text="@string/text_service_bought"
+            android:textColor="@color/textDarkSecondary"
+            android:textSize="@dimen/text_body_1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv1"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:padding="@dimen/half"
+            android:text="@string/text_amount"
+            android:textColor="@color/textDarkSecondary"
+            android:textSize="@dimen/text_body_1" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvBilling"
+        android:clipToPadding="false"
+        android:visibility="gone"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_billing" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/full_xxl"
+        android:text="@string/msg_no_transaction_found"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <ProgressBar
+        android:id="@+id/pbProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/full_xxl"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>

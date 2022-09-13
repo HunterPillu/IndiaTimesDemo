@@ -53,7 +53,7 @@ class LoginViewModel : CommonViewModel() {
             if (null != responseOTP) {
                 statusLiveData.postValue(Resource.success(2))
             } else {
-                statusLiveData.postValue(Resource.error(2))
+                //statusLiveData.postValue(Resource.error(2))
             }
         }
     }

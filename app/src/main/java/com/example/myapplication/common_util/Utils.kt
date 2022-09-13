@@ -11,7 +11,7 @@ import dev.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog
 import dev.shreyaspatil.MaterialDialog.model.TextAlignment
 
 object Utils {
-    var IS_API_NOT_WORKING = true
+    var IS_API_NOT_WORKING = false
 
     fun showNoInternetDialog(activity: Activity) {
         val mDialog = BottomSheetMaterialDialog.Builder(activity)

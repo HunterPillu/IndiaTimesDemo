@@ -2,9 +2,7 @@ package com.example.myapplication.api
 
 import com.example.myapplication.model.*
 import retrofit2.Response
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
     @GET("rssfeedstopstories.cms")
@@ -30,4 +28,7 @@ interface ApiService {
 
     @GET("user/subscription_details")
     suspend fun subscriptionDetails(): Response<MutableList<DcbSubscription>>
+
+    @GET("user/wallet")
+    suspend fun walletDetails(@Query("phone_number") phone_number: String): Response<BillingResp>
 }

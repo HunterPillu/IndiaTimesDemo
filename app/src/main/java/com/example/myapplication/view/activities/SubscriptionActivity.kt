@@ -1,6 +1,7 @@
 package com.example.myapplication.view.activities
 
 import android.app.ProgressDialog
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
@@ -9,9 +10,11 @@ import androidx.appcompat.widget.PopupMenu
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
 import com.example.myapplication.common_util.DebugUtils
+import com.example.myapplication.common_util.PrefUtils
 import com.example.myapplication.common_util.Status
 import com.example.myapplication.common_util.Utils
 import com.example.myapplication.model.DcbSubscription
+import com.example.myapplication.model.OtpResp
 import com.example.myapplication.view.adapter.SubscriptionAdapter
 import com.example.myapplication.viewmodel.SubscriptionViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
@@ -30,7 +33,7 @@ class SubscriptionActivity : DcbBaseActivity() {
     private lateinit var bsmSubscribe: BottomSheetBehavior<MaterialCardView>
     private lateinit var bsmPurchase: BottomSheetBehavior<MaterialCardView>
 
-    private lateinit var progress: ProgressDialog
+    //private lateinit var progress: ProgressDialog
     private val mPaymentMethods = getPaymentMethods()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -104,15 +107,20 @@ class SubscriptionActivity : DcbBaseActivity() {
                 Status.LOADING -> {
                     if (it.data == 1) {
                         pbProgress.visibility = View.VISIBLE
+                    } else if (it.data == 2) {
+                        tvPurchase.visibility = View.INVISIBLE
+                        pbPurchase.visibility = View.VISIBLE
                     } else {
-                        progress.show()
+                        //progress.show()
                     }
                 }
                 Status.SUCCESS -> {
-                    progress.dismiss()
+                    //progress.dismiss()
 
-                    if (it.data == 2 && null != mViewModel.responseOTP) {
-
+                    if (it.data == 2 && null != mViewModel.responsePurchase) {
+                        tvPurchase.visibility = View.VISIBLE
+                        pbPurchase.visibility = View.GONE
+                        showPurchaseResult(mViewModel.responsePurchase!!)
                     } else if (it.data == 1 && mViewModel.mSubscriptions?.isEmpty() == false) {
                         pbProgress.visibility = View.GONE
                         showHideList(true)
@@ -120,12 +128,13 @@ class SubscriptionActivity : DcbBaseActivity() {
                     }
                 }
                 Status.ERROR -> {
-                    progress.dismiss()
+                    //progress.dismiss()
                     pbProgress.visibility = View.GONE
+                    tvPurchase.visibility = View.VISIBLE
+                    pbPurchase.visibility = View.GONE
                     if (it.data == 1) {
-                        if (!Utils.IS_API_NOT_WORKING) {
-                            showHideList(false)
-                        }
+                        showHideList(false)
+
                     }
                     showErrorDialog(it.data, null)
                 }
@@ -148,8 +157,10 @@ class SubscriptionActivity : DcbBaseActivity() {
 
     private fun observeApiError() {
         mViewModel.apiErrorLiveData.observe(this) {
-            progress.dismiss()
+            //progress.dismiss()
             pbProgress.visibility = View.GONE
+            tvPurchase.visibility = View.VISIBLE
+            pbPurchase.visibility = View.GONE
             showErrorDialog(it.code, it.message)
         }
     }
@@ -159,10 +170,10 @@ class SubscriptionActivity : DcbBaseActivity() {
         val animationJson: String
         if (type == 1) {
             //means authenticate error
-            message = getString(R.string.login_failed)
+            message = getString(R.string.error_subscription)
             animationJson = "forget_password_animation.json"
         } else if (type == 2) {
-            message = mViewModel.responseOTP?.message!!
+            message = getString(R.string.transaction_failed)
             animationJson = "forget_password_animation.json"
         } else {
             //something else
@@ -192,6 +203,45 @@ class SubscriptionActivity : DcbBaseActivity() {
         animationView.scaleType = ImageView.ScaleType.CENTER_INSIDE
     }
 
+    private fun showPurchaseResult(result: OtpResp) {
+
+        val message: String
+        val animationJson: String
+        if (result.success == true) {
+            message = getString(R.string.transaction_completed)
+            animationJson = "forget_password_animation.json"
+        } else {
+            message = getString(R.string.transaction_failed)
+            animationJson = "forget_password_animation.json"
+        }
+
+        val mDialog = BottomSheetMaterialDialog.Builder(this)
+            .setTitle(result.message!!, TextAlignment.START)
+            .setMessage(message, TextAlignment.START)
+            .setCancelable(true)
+            .setAnimation(animationJson)
+            .setPositiveButton(
+                getString(R.string.text_ok)
+            ) { dialogInterface, which ->
+                // Delete Operation
+                dialogInterface.dismiss()
+                if (result.success == true) {
+                    startActivity(Intent(this, BillingActivity::class.java))
+                    finish()
+                }
+            }
+            /* .setNegativeButton(
+                 "Cancel", R.drawable.ic_close
+             ) { dialogInterface, which -> dialogInterface.dismiss() }*/
+            .build()
+
+        // Show Dialog
+        mDialog.show()
+
+        val animationView = mDialog.animationView
+        animationView.scaleType = ImageView.ScaleType.CENTER_INSIDE
+    }
+
     private fun getDummyData(): MutableList<DcbSubscription> {
         val list: MutableList<DcbSubscription> = arrayListOf()
         if (Utils.IS_API_NOT_WORKING) {
@@ -206,10 +256,10 @@ class SubscriptionActivity : DcbBaseActivity() {
     private fun initViews() {
         mAdapter = SubscriptionAdapter(getDummyData(), ::onListItemClicked)
         rvList.adapter = mAdapter
-        progress = ProgressDialog(this)
+        /*progress = ProgressDialog(this)
         progress.setTitle("Loading")
         progress.setMessage("Wait while loading...")
-        progress.setCancelable(true) // disable dismiss by tapping outside of the dialog
+        progress.setCancelable(true) // disable dismiss by tapping outside of the dialog*/
     }
 
     private fun setOnClickListeners() {
@@ -227,13 +277,23 @@ class SubscriptionActivity : DcbBaseActivity() {
         }
 
         tvSubscribe.setOnClickListener {
-            DebugUtils.debug(TAG, "inside tvSubscribe.setOnClickListener")
+            //DebugUtils.debug(TAG, "inside tvSubscribe.setOnClickListener")
             bsmSubscribe.state = BottomSheetBehavior.STATE_HIDDEN
             updateBottomPurchase(mAdapter.getSelectedItem())
         }
 
         tvPaymentOption.setOnClickListener {
             showPopupMenu()
+        }
+
+        tvPurchase.setOnClickListener {
+            initPurchase()
+        }
+        llControlsPurchase.setOnClickListener {
+            //do nothing
+        }
+        llControlsSubscription.setOnClickListener {
+            //do nothing
         }
     }
 
@@ -245,7 +305,17 @@ class SubscriptionActivity : DcbBaseActivity() {
         if (Utils.isNetworkAvailable(this)) {
             mViewModel.fetchSubscription()
         } else {
+            Utils.showNoInternetDialog(this)
+        }
+    }
 
+    private fun initPurchase() {
+
+        if (Utils.isNetworkAvailable(this)) {
+            // val selectedSubscription
+            mViewModel.initPurchase(PrefUtils.getPhoneNumber(this))
+        } else {
+            Utils.showNoInternetDialog(this)
         }
     }
 
@@ -291,7 +361,9 @@ class SubscriptionActivity : DcbBaseActivity() {
         return list
     }
 
+
     private fun updateBottomPurchase(item: DcbSubscription) {
+        mViewModel.mSelectedSubscription = item
         bsmPurchase.state = BottomSheetBehavior.STATE_EXPANDED
         tvServiceSelected.text = item.subscriptionName
         tvServiceCost.text = "₹ ${item.subscriptionAmount}"

@@ -91,6 +91,7 @@
     <string name="title_no_internet">No Internet!!!</string>
     <string name="msg_no_internet">Slow or no internet available. Please check your network connection and try again.</string>
     <string name="login_failed">Something went wrong. Please check UserName and Password and try again.</string>
+    <string name="error_subscription">Something went wrong. No Subscriptions available..</string>
     <string name="text_ok">OK</string>
     <string name="text_exit">Exit</string>
     <string name="text_retry">Retry</string>
@@ -130,6 +131,7 @@
     <string name="title_billing_details">Billing Details</string>
     <string name="msg_no_subscription">No Subscriptions Found</string>
     <string name="title_subscription_detail">Subscription Details</string>
+    <string name="title_billing_detail">Billing Details</string>
     <string name="subscribe">Subscribe</string>
     <string name="title_subscription_selected">Selected subscription</string>
     <string name="title_subscription_cost">Cost of subscription</string>
@@ -144,5 +146,16 @@
     <string name="payment_4">Phone Pay</string>
     <string name="payment_5">Debit Card</string>
     <string name="payment_6">Credit Card</string>
+    <string name="transaction_completed">Transaction completed successfully</string>
+    <string name="transaction_failed">Something went wrong. Transaction failed.</string>
+    <string name="something_went_wrong">Something went wrong.</string>
+    <string name="total_billing_amount">Total Billing Amount</string>
+    <string name="billing_date">Billing Date</string>
+    <string name="current_statement">Current Statement</string>
+    <string name="text_date">Date</string>
+    <string name="text_service_bought">Service bought</string>
+    <string name="text_amount">Amount</string>
+    <string name="title_transaction">Transaction History</string>
+    <string name="msg_no_transaction_found">No transactions found</string>
 
 </resources>

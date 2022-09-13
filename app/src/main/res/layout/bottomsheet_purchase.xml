@@ -6,14 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:behavior_hideable="true"
-    app:strokeColor="@color/colorPrimary"
-    app:strokeWidth="0.5dp"
     app:cardCornerRadius="@dimen/full"
     app:cardElevation="@dimen/full_xl"
-    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
+    app:strokeColor="@color/colorPrimary"
+    app:strokeWidth="0.5dp">
 
     <androidx.appcompat.widget.LinearLayoutCompat
-        android:id="@+id/llControls"
+        android:id="@+id/llControlsPurchase"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/half"
@@ -50,7 +50,6 @@
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content">
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -166,21 +165,34 @@
             android:layout_height="0.5dp"
             android:layout_gravity="center" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tvPurchase"
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_gravity="end"
             android:layout_marginStart="@dimen/full"
             android:layout_marginTop="@dimen/full"
-            android:background="@drawable/button_bg"
-            android:gravity="center"
-            android:minHeight="@dimen/medium_button_height"
-            android:paddingHorizontal="@dimen/full_xl"
-            android:text="@string/purchase"
-            android:textColor="@color/white"
-            android:textSize="@dimen/text_body_1" />
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvPurchase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_bg"
+                android:gravity="center"
+                android:minHeight="@dimen/medium_button_height"
+                android:paddingHorizontal="@dimen/full_xl"
+                android:text="@string/purchase"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_body_1" />
+
+            <ProgressBar
+                android:id="@+id/pbPurchase"
+                android:layout_width="@dimen/medium_button_height"
+                android:layout_height="@dimen/medium_button_height"
+                android:layout_centerHorizontal="true"
+                android:visibility="gone" />
+
+        </RelativeLayout>
 
     </androidx.appcompat.widget.LinearLayoutCompat><!-- </androidx.appcompat.widget.LinearLayoutCompat>-->
 

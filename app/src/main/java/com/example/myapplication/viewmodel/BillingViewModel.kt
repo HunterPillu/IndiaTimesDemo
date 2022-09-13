@@ -4,28 +4,28 @@ import android.util.Log
 import androidx.lifecycle.viewModelScope
 import com.example.myapplication.api.RetrofitBuilder
 import com.example.myapplication.common_util.Resource
-import com.example.myapplication.model.*
+import com.example.myapplication.model.BillingResp
+import com.example.myapplication.model.DcbSubscription
+import com.example.myapplication.model.OtpResp
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.json.JSONException
 import org.json.JSONObject
 import retrofit2.Response
 import java.io.IOException
 
-class SubscriptionViewModel : CommonViewModel() {
+class BillingViewModel : CommonViewModel() {
     lateinit var mSelectedSubscription: DcbSubscription
-    private val TAG: String = SubscriptionViewModel::class.java.name
-    var mSubscriptions: MutableList<DcbSubscription>? = null
-    var responsePurchase: OtpResp? = null
+    private val TAG: String = BillingViewModel::class.java.name
+    var mBillings: BillingResp? = null
 
 
-    fun fetchSubscription() {
+    fun fetchBillingDetails(phone: String) {
         viewModelScope.launch(Dispatchers.IO + coroutineHandler) {
             statusLiveData.postValue(Resource.loading(1))
-            val result = RetrofitBuilder.getApiService().subscriptionDetails()
-            mSubscriptions = handleApiErrorsIfAny(result)
-            if (null != mSubscriptions) {
+            val result = RetrofitBuilder.getApiService().walletDetails(phone)
+            mBillings = handleApiErrorsIfAny(result)
+            if (null != mBillings) {
                 statusLiveData.postValue(Resource.success(1))
             } else {
                 statusLiveData.postValue(Resource.error(1))
@@ -33,26 +33,26 @@ class SubscriptionViewModel : CommonViewModel() {
         }
     }
 
-    fun initPurchase(phone: String) {
-        viewModelScope.launch(Dispatchers.IO + coroutineHandler) {
-            statusLiveData.postValue(Resource.loading(2))
-            val purchase: DcbPurchase = DcbPurchase(
-                phone,
-                mSelectedSubscription.subscriptionName,
-                mSelectedSubscription.subscriptionId,
-                mSelectedSubscription.subscriptionAmount?.toInt()
-            )
-            val result = RetrofitBuilder.getApiService().purchase(purchase)
-            responsePurchase = handleApiErrorsIfAny(result)
-            delay(2000)
-            if (null != responsePurchase) {
-                statusLiveData.postValue(Resource.success(2))
-            } else {
-                statusLiveData.postValue(Resource.error(2))
-            }
-        }
-    }
-
+    /* fun initPurchase(phone: String) {
+         viewModelScope.launch(Dispatchers.IO + coroutineHandler) {
+             statusLiveData.postValue(Resource.loading(2))
+             val purchase: DcbPurchase = DcbPurchase(
+                 phone,
+                 mSelectedSubscription.subscriptionName,
+                 mSelectedSubscription.subscriptionId,
+                 mSelectedSubscription.subscriptionAmount?.toInt()
+             )
+             val result = RetrofitBuilder.getApiService().purchase(purchase)
+             responsePurchase = handleApiErrorsIfAny(result)
+             delay(2000)
+             if (null != responsePurchase) {
+                 statusLiveData.postValue(Resource.success(2))
+             } else {
+                 statusLiveData.postValue(Resource.error(2))
+             }
+         }
+     }
+ */
 
     /*fun initAssociate(otp: String) {
         viewModelScope.launch(Dispatchers.IO + coroutineHandler) {
@@ -75,7 +75,7 @@ class SubscriptionViewModel : CommonViewModel() {
         }
     }*/
 
-    private fun handleApiErrorsIfAny(response: Response<MutableList<DcbSubscription>>): MutableList<DcbSubscription>? {
+    private fun handleApiErrorsIfAny(response: Response<BillingResp>): BillingResp? {
         val code: Int = response.code()
         if (code in 200..204) {
             return response.body()

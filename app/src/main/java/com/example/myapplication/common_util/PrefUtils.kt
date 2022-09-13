@@ -39,6 +39,11 @@ object PrefUtils {
             ?: ""
     }
 
+    fun getPhoneNumber(context: Context): String {
+        return PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_PHONE, "")
+            ?: ""
+    }
+
     fun getCookie(context: Context): String {
         return PreferenceManager.getDefaultSharedPreferences(context).getString(KEY_COOKIE, "")
             ?: ""

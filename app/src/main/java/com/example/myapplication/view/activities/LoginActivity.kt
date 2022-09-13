@@ -6,10 +6,10 @@ import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import androidx.preference.PreferenceManager
 import com.example.myapplication.R
+import com.example.myapplication.common_util.DebugUtils
 import com.example.myapplication.common_util.PrefUtils
 import com.example.myapplication.common_util.Status
 import com.example.myapplication.common_util.Utils
@@ -17,7 +17,6 @@ import com.example.myapplication.viewmodel.LoginViewModel
 import dev.shreyaspatil.MaterialDialog.BottomSheetMaterialDialog
 import dev.shreyaspatil.MaterialDialog.model.TextAlignment
 import kotlinx.android.synthetic.main.activity_login.*
-import kotlinx.android.synthetic.main.top_stories_fragment.*
 
 
 class LoginActivity : DcbBaseActivity() {
@@ -51,6 +50,8 @@ class LoginActivity : DcbBaseActivity() {
                     progress.dismiss()
 
                     if (it.data == 2 && null != mViewModel.responseOTP) {
+                        val result = mViewModel.responseOTP!!
+
                         PrefUtils.putBoolean(this, PrefUtils.KEY_LOGGED_IN, false)
                         PrefUtils.putString(this, PrefUtils.KEY_PHONE, etPhone.text.toString())
                         PrefUtils.putString(this, PrefUtils.KEY_EMAIL, etEmail.text.toString())
@@ -70,9 +71,17 @@ class LoginActivity : DcbBaseActivity() {
                             PrefUtils.KEY_GP_TOKEN,
                             mViewModel.responseDCB?.gpToken
                         )
+
+                        if (result.success == true) {
+                            startActivity(Intent(this, BillingActivity::class.java))
+                            finish()
+                        } else {
+                            showErrorDialog(it.data, result.message)
+                        }
+
                     } else if (it.data == 1 && null != mViewModel.responseDCB) {
 
-                        PrefUtils.removeLoginDataIfExist(this)
+                        //PrefUtils.removeLoginDataIfExist(this)
 
                         PrefUtils.putBoolean(
                             this,
@@ -104,6 +113,8 @@ class LoginActivity : DcbBaseActivity() {
                 }
                 Status.ERROR -> {
                     progress.dismiss()
+                    DebugUtils.debug(TAG, "${it.data}")
+                    DebugUtils.debug(TAG, "${it.message}")
                     showErrorDialog(it.data, null)
                 }
                 else -> {
@@ -128,10 +139,11 @@ class LoginActivity : DcbBaseActivity() {
             message = getString(R.string.login_failed)
             animationJson = "forget_password_animation.json"
         } else if (type == 2) {
-            message = mViewModel.responseOTP?.message!!
+            message = mViewModel.responseOTP?.message ?: getString(R.string.something_went_wrong)
             animationJson = "forget_password_animation.json"
         } else {
             //something else
+            message = msg ?: getString(R.string.something_went_wrong)
             animationJson = "forget_password_animation.json"
         }
 
@@ -197,7 +209,6 @@ class LoginActivity : DcbBaseActivity() {
                 input_otp.error = "Please input valid OTP"
                 etOTP.requestFocus()
             } else {
-                3
                 initAssociate()
             }
         }
